@@ -1,0 +1,4 @@
+LIBRARY	"plugin_inventory_functions"
+EXPORTS
+SKSEPlugin_Query
+SKSEPlugin_Load

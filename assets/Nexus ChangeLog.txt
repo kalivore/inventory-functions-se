@@ -1,0 +1,24 @@
+Version 0.05.00
+
+Updated for SKSE64 2.0.8 (Skyrim SE runtime 1.5.50)
+Added slightly-experimental "GetTotalBaseGoldValue" function.  'Experimental' in that it can only get base values (so won't reflect the true value of Enchanted or Improved items), but I thought it might be handy for someone somewhere, maybe..?
+
+
+Version 0.04.00
+
+Updated for SKSE64 2.0.7 (Skyrim SE runtime 1.5.39)
+
+
+Version 0.03.00
+
+Updated for SKSE64 2.0.6 (Skyrim SE runtime 1.5.23)
+
+
+Version 0.02.00
+
+Updated for SKSE64 2.0.5 (Skyrim SE runtime 1.5.16)
+
+
+Version 0.01.00
+
+Initial release - ported from 32-bit Skyrim with minimal alteration (just dropped the obsolete spell-checking functions)
