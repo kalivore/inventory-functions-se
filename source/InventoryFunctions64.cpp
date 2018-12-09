@@ -18,7 +18,8 @@ typedef std::map<TESForm*, UInt32> ExtraContainerMap;
 // static const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x015454B0); // v2.0.5 (runtime 1.5.16)
 // static const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x015454B0); // v2.0.6 (runtime 1.5.23)
 // static const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x015464B0); // v2.0.7 (runtime 1.5.39)
-static const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x015464C0); // v2.0.8 (runtime 1.5.50)
+// static const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x015464C0); // v2.0.8 (runtime 1.5.50)
+static const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x015464C0); // v2.0.9 (runtime 1.5.53)
 
 ExtraPoison* ExtraPoisonCreate()
 {
@@ -523,7 +524,7 @@ namespace InventoryFunctions_ReferenceUtils
 			return -1;
 		}
 
-		//_MESSAGE("InventoryFunctions_ReferenceUtils::GetPoisonCharges - %d", extraPoison->unk08);
+		//_MESSAGE("InventoryFunctions_ReferenceUtils::GetPoisonCharges - %d", extraPoison->unk18);
 		return extraPoison->unk18;
 	}
 
