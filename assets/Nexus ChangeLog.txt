@@ -1,6 +1,11 @@
+Version 0.07.00
+
+Updated for SKSE64 2.0.13 through 2.0.15 (Skyrim SE runtime 1.5.73)
+
+
 Version 0.06.00
 
-Updated for SKSE64 2.0.11 (Skyrim SE runtime 1.5.62)
+Updated for SKSE64 2.0.9 through 2.0.12 (Skyrim SE runtime 1.5.53 and 1.5.62)
 
 
 Version 0.05.00
