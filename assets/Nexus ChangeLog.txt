@@ -1,3 +1,9 @@
+Version 2.01.00
+
+Updated for SKSE64 2.2.1, 2.2.2 (Skyrim AE runtime 1.6.640)
+Also works with SKSE64 2.2.3 (Skyrim AE runtime 1.6.640 and GOG runtime 1.6.659)
+
+
 Version 0.07.00
 
 Updated for SKSE64 2.0.17 (Skyrim SE runtime 1.5.97)

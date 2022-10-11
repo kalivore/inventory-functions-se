@@ -23,7 +23,12 @@ typedef std::map<TESForm*, UInt32> ExtraContainerMap;
 // static const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x015464C0); // v2.0.11 and 12 (runtime 1.5.62)
 //const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x0152C470); // v2.0.13, 14 and 15 (runtime 1.5.73)
 //const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x0152C470); // v2.0.16 (runtime 1.5.80)
-const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x0152C460); // v2.0.17, 18, 19 and 20 (runtime 1.5.97)
+//const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x0152C460); // v2.0.17, 18, 19 and 20 (runtime 1.5.97)
+// ------------------------------------------------------------ AE Versions ----------------------------------------------------------------------
+//const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x01623E50); // v2.1.0 (runtime 1.6.317), v2.1.1 and 2 (runtime 1.6.318), v2.1.3 (runtime 1.6.323)
+//const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x01624E50); // v2.1.4 (runtime 1.6.342), v2.1.5 (runtime 1.6.353)
+//const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x01622EA0); // v2.2.0 (runtime 1.6.629)
+const RelocPtr<uintptr_t> s_ExtraPoisonVtbl(0x01622E90); // v2.2.1 and 2 (runtime 1.6.640)
 
 ExtraPoison* ExtraPoisonCreate()
 {

@@ -1,5 +1,17 @@
 This is an update of the excellent 'Inventory Functions' SKSE plugin, originally written by Quad2Core for 32-bit Skyrim, and found [url=http://www.nexusmods.com/skyrim/mods/53432]here[/url].
 
+[center][color=#b9a374][size=4][b]AE (and GOG??) Compatible version added[/b][/size][/color]
+I've added an updated version which works on newest AE build (SKSE 2.2.1, 2.2.2, and 2.2.3 for AE build 1.6.640)
+
+This [i]should[/i] also work on the new GOG version (SKSE 2.2.3 for GOG build 1.6.659)
+I don't have a GOG copy to test this on though, so hope for the best!!
+(and unless there's ANOTHER version been released since then! :p)
+
+I'm not intending to do releases for any previous AE builds though;
+there are just far too many old versions for me to go through and force-update my Skyrim folder to![/center]
+
+[line]
+
 I first updated this for the final 32-bit SKSE (thankfully Q2C included a source file, and also gave permission for the plugin to be re-used - I contacted a Nexus admin, and they confirmed it would be considered acceptable for me to host the updated version). With the (alpha) release of SKSE64, I've updated and recompiled this again, and on the assumption the original permission still holds, am hosting it here for 64-bit users.
 
 Here's what is currently in the script:
@@ -102,8 +114,8 @@ int Function    WornSetPoison(Actor akActor, int aiHandSlot, Potion poison, int 
 Function      WornRemovePoison(Actor akActor, int aiHandSlot)
 int Function    WornGetPoisonCharges(Actor akActor, int aiHandSlot)
 int Function     WornSetPoisonCharges(Actor akActor, int aiHandSlot, int aiCharges = 1)
-
 [/color]
+[/font]
 
 [line]
 
@@ -300,7 +312,7 @@ endFunction
 [/font]
 
 
-[/font][center][font=Courier New][color=#1e84cc][size=3][b]I am just the updater of the original work - all credit for the original functions (and my inspiration) is due to Quad2Core[/b][/size].[/font][/center]
+[center][font=Courier New][color=#1e84cc][size=3][b]I am just the updater of the original work - all credit for the original functions (and my inspiration) is due to Quad2Core[/b][/size].[/color][/font][/center]
 As per their original wishes:
 [quote]Feel free to package this plugin with your own mods and use it for your own projects.
 Please just mention me (ie Quad2Core) in a footnote somewhere.
@@ -308,3 +320,6 @@ Please just mention me (ie Quad2Core) in a footnote somewhere.
 All Credits are going to the SKSE Team![/quote]
 
 I hope other people can find as much excellent use for these as I have!  Oh - and go give Quad2Core some kudos! :)
+
+[line]
+Source code here, btw (cos I hadn't noticed I'd left the link out!!): [url=https://github.com/kalivore/inventory-functions-se]https://github.com/kalivore/inventory-functions-se[/url]
