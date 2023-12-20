@@ -1,11 +1,7 @@
 This is an update of the excellent 'Inventory Functions' SKSE plugin, originally written by Quad2Core for 32-bit Skyrim, and found [url=http://www.nexusmods.com/skyrim/mods/53432]here[/url].
 
-[center][color=#b9a374][size=4][b]AE (and GOG??) Compatible version added[/b][/size][/color]
-I've added an updated version which works on newest AE build (SKSE 2.2.1, 2.2.2, and 2.2.3 for AE build 1.6.640)
-
-This [i]should[/i] also work on the new GOG version (SKSE 2.2.3 for GOG build 1.6.659)
-I don't have a GOG copy to test this on though, so hope for the best!!
-(and unless there's ANOTHER version been released since then! :p)
+[center][color=#b9a374][size=4][b]AE Compatible version added (but not GOG, alas)[/b][/size][/color]
+I've added an updated version which works on newest AE build (SKSE 2.2.5 for AE build 1.6.1130)
 
 I'm not intending to do releases for any previous AE builds though;
 there are just far too many old versions for me to go through and force-update my Skyrim folder to![/center]
@@ -22,17 +18,17 @@ Here's what is currently in the script:
 
 [font=Courier New]
 [color=#00ff00]; Q2C's original functions, updated for SKSE64[/color]
-int Function     GetNumItemsWithKeyword(ObjectReference akObjRef, Keyword akKeyword)
+int Function     GetNumItemsWithKeyword(ObjectReference akObjRef, Keyword akKeyword)
 Form Function    GetNthFormWithKeyword(ObjectReference akObjRef, Keyword akKeyword, int aiItemIndex)
 
 [color=#00ff00]; added by Kalivore - type is the SKSE itemType (eg 26 for armour, or 46 for potion)
 ; full list at http://www.creationkit.com/index.php?title=GetType_-_Form[/color]
-int Function     GetNumItemsOfType(ObjectReference akObjRef, int aiType)
+int Function     GetNumItemsOfType(ObjectReference akObjRef, int aiType)
 Form Function    GetNthFormOfType(ObjectReference akObjRef, int aiType, int aiItemIndex)
 
 [color=#00ff00]; get total of the base gold values of items in container
 ; 'base' means the extra value of enchantments/improvements on items is ignored[/color]
-int Function     GetTotalBaseGoldValue(ObjectReference akObjRef)
+int Function     GetTotalBaseGoldValue(ObjectReference akObjRef)
 [/font]
 
 [line]
@@ -144,8 +140,8 @@ Sets the base damage of this ammo
 
 [center][color=#9900ff][size=4][b]Spell inventory Functions[/b][/size][/color][/center]
 
-[color=#ff0000]The Spell-related functions in here will [b]only[/b] list [i]explicit[/i] Spells (ie items which have a Spell Type of "Spell" in the Creation Kit).  This means they will ignore magic marked as Abilities, like those added by Perks.[/color]
-(Many thanks to user [url=http://www.nexusmods.com/skyrim/users/7280154]irswat[/url] for helping me to investigate and realise the difference between these).  As a result, if you call them with no specific criteria, these will return a full list of Spells.
+[color=#ff0000]The Spell-related functions in here will [b]only[/b] list [i]explicit[/i] Spells (ie items which have a Spell Type of "Spell" in the Creation Kit).  This means they will ignore magic marked as Abilities, like those added by Perks.[/color]
+(Many thanks to user [url=http://www.nexusmods.com/skyrim/users/7280154]irswat[/url] for helping me to investigate and realise the difference between these).  As a result, if you call them with no specific criteria, these will return a full list of Spells.
 
 [font=Courier New]
 [color=#00ff00]; Some spell-related Constants for use with these functions (all Global, so you can call them as _Q2C_Functions.SpellSchoolAny() )[/color]
@@ -242,7 +238,7 @@ Scans the ActorBase's shouts, returning true at the first one that matches the s
 If you supply a Level argument to the functions (eg 25 for Apprentice-level spells), the plugin will only check the FIRST Magic Effect on each spell for this.  Additionally, if testing for level 0 (Novice), the Magic Effect [i]must[/i] have a School assigned to it to be counted.
 
 Explanation: [spoiler]
-This is because spells can have many Effects assigned to them. The additional effects are usually enabled by perks: eg the Intense Flames effect on the Adept-level Fireball spell.  Since you need the Perk to unlock it, the Intense Flames effect actually has a level of 0 - which would cause trouble if you were looking for "spells of Apprentice level or less", and you got the Fireball spell back because its second effect is level 0.  
+This is because spells can have many Effects assigned to them. The additional effects are usually enabled by perks: eg the Intense Flames effect on the Adept-level Fireball spell.  Since you need the Perk to unlock it, the Intense Flames effect actually has a level of 0 - which would cause trouble if you were looking for "spells of Apprentice level or less", and you got the Fireball spell back because its second effect is level 0.  
 
 Furthermore (and regrettably), the vanilla game actually assigns Novice spells (eg Flames) a level of 0 - which is the default level, and used by a lot of 'maintenance effect'-type spells (ie, the sort of Magic Effect you apply with a Cloak spell to nearby NPCs).  Thankfully, these effects are also unlikely to have a Magic School assigned to them, so by testing the the effect [i]does[/i] have a school, it means we should only get 'proper' spells returned by the functions.
 [/spoiler]
@@ -257,12 +253,12 @@ ObjectReference Property PlayerRef Auto
 Keyword Property VendorItemPotion Auto
 
 Function ReWeightPotions()
-  int PotionIndex = GetNumItemsWithKeyword(PlayerRef, VendorItemPotion)
-  While(PotionIndex > 0)
-    PotionIndex -= 1
-    Form potion = GetNthFormWithKeyword(PlayerRef, VendorItemPotion, PotionIndex)
-    potion.SetWeight(0.0)
-  endWhile
+  int PotionIndex = GetNumItemsWithKeyword(PlayerRef, VendorItemPotion)
+  While(PotionIndex > 0)
+    PotionIndex -= 1
+    Form potion = GetNthFormWithKeyword(PlayerRef, VendorItemPotion, PotionIndex)
+    potion.SetWeight(0.0)
+  endWhile
 endFunction
 
 
@@ -271,13 +267,13 @@ Actor Property SomeEnemy Auto
 Keyword Property MagicDamageFire Auto
 
 Function CheckEnemyHasFireSpell()
-  [color=#00ff00]  ; just send the Keyword argument, and leave all others at default[/color]
-  bool hasFire = ActorHasSpell(SomeEnemy, MagicDamageFire)
-  if (hasFire)
-    Debug.Trace("The enemy has at least one Fire spell")
-  else
-    Debug.Trace("Well at least they won't set us on fire...")
-  endIf
+  [color=#00ff00]  ; just send the Keyword argument, and leave all others at default[/color]
+  bool hasFire = ActorHasSpell(SomeEnemy, MagicDamageFire)
+  if (hasFire)
+    Debug.Trace("The enemy has at least one Fire spell")
+  else
+    Debug.Trace("Well at least they won't set us on fire...")
+  endIf
 endFunction
 
 
@@ -285,13 +281,13 @@ endFunction
 Actor Property SomeAlly Auto
 
 Function CheckAllyHasRestorationSpell()
-  [color=#00ff00]  ; set Keyword argument to None (meaning 'don't match Keywords'), specify the School, and leave all others at default[/color]
-  bool hasRestorationSpell = ActorHasSpell(SomeAlly, None, "Restoration")
-  if (hasRestorationSpell)
-    Debug.Trace("Restoration IS a perfectly valid school of magic")
-  else
-    Debug.Trace("Guess our ally won't be doing any healing...")
-  endIf
+  [color=#00ff00]  ; set Keyword argument to None (meaning 'don't match Keywords'), specify the School, and leave all others at default[/color]
+  bool hasRestorationSpell = ActorHasSpell(SomeAlly, None, "Restoration")
+  if (hasRestorationSpell)
+    Debug.Trace("Restoration IS a perfectly valid school of magic")
+  else
+    Debug.Trace("Guess our ally won't be doing any healing...")
+  endIf
 endFunction
 
 
@@ -299,15 +295,15 @@ endFunction
 Actor Property PlayerRef Auto
 
 Function ListPlayerSpells()
-[color=#00ff00]  ; just send the Actor argument, and leave all others at defaults, to get a full list of spells the actor knows[/color]
-  Spell[] actorAllSpells = ActorGetSpells(PlayerRef)
-  int spellIndex = 0
-  Report("Player has " + actorAllSpells.Length + " spells of any sort")
-  while (spellIndex < actorAllSpells.Length)
-    Spell currentSpell = actorAllSpells[spellIndex]
-    Debug.Trace("Spell " + spellIndex + ": " + currentSpell.GetName())
-    spellIndex += 1
-  endWhile
+[color=#00ff00]  ; just send the Actor argument, and leave all others at defaults, to get a full list of spells the actor knows[/color]
+  Spell[] actorAllSpells = ActorGetSpells(PlayerRef)
+  int spellIndex = 0
+  Report("Player has " + actorAllSpells.Length + " spells of any sort")
+  while (spellIndex < actorAllSpells.Length)
+    Spell currentSpell = actorAllSpells[spellIndex]
+    Debug.Trace("Spell " + spellIndex + ": " + currentSpell.GetName())
+    spellIndex += 1
+  endWhile
 endFunction
 [/font]
 
@@ -319,7 +315,7 @@ Please just mention me (ie Quad2Core) in a footnote somewhere.
 
 All Credits are going to the SKSE Team![/quote]
 
-I hope other people can find as much excellent use for these as I have!  Oh - and go give Quad2Core some kudos! :)
+I hope other people can find as much excellent use for these as I have!  Oh - and go give Quad2Core some kudos! :)
 
 [line]
 Source code here, btw (cos I hadn't noticed I'd left the link out!!): [url=https://github.com/kalivore/inventory-functions-se]https://github.com/kalivore/inventory-functions-se[/url]
