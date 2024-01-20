@@ -1,9 +1,10 @@
 This is an update of the excellent 'Inventory Functions' SKSE plugin, originally written by Quad2Core for 32-bit Skyrim, and found [url=http://www.nexusmods.com/skyrim/mods/53432]here[/url].
 
-[center][color=#b9a374][size=4][b]AE Compatible version added (but not GOG, alas)[/b][/size][/color]
-I've added an updated version which works on newest AE build (SKSE 2.2.5 for AE build 1.6.1130)
+[center][color=#b9a374][size=4][b]AE Compatible[/b][/size][/color]
+Works on newest AE build (SKSE 2.2.6 for AE build 1.6.1170)
+MIGHT work on GOG version 1.6.1170 too - and there's also a version that should work with GOG 1.6.659 on the Files page..
 
-I'm not intending to do releases for any previous AE builds though;
+I'm not intending to do releases for AE builds before 1.6.640, btw;
 there are just far too many old versions for me to go through and force-update my Skyrim folder to![/center]
 
 [line]

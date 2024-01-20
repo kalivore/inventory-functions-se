@@ -1,6 +1,12 @@
+Version 2.03.00
+
+Updated for SKSE64 2.2.6 (Skyrim AE runtime 1.6.1170)
+May-or-may-not work with GOG-edition 1.6.1170 (I've honestly lost track of these by now!)
+
+
 Version 2.02.00
 
-Updated for SKSE64 2.2.5 (Skyrim SE runtime 1.6.1130)
+Updated for SKSE64 2.2.5 (Skyrim AE runtime 1.6.1130)
 I wouldn't try it on 2.2.4 (and it looks like there's no need/reason to use that anyway - just go for 2.2.5)
 
 

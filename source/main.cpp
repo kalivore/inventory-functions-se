@@ -85,7 +85,7 @@ extern "C"
 
 		0,	// not version independent (extended field)
 		0,	// not version independent
-		{ RUNTIME_VERSION_1_6_1130, 0 },	// compatible with 1.6.1130 only
+		{ RUNTIME_VERSION_1_6_1170, 0 },	// compatible with 1.6.1170 only
 
 		0,	// works with any version of the script extender. you probably do not need to put anything here
 	};
